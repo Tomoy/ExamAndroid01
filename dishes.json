@@ -1,0 +1,76 @@
+{
+"dishes": [
+    {
+      "name": "Tortilla de patatas",
+      "allergens" : [
+        "fish",
+        "nuts",
+        "wheat",
+        "soy"
+      ],
+      "price": 8.50,
+      "description": "Excelente tortilla de patatas, hecha con las patatas mas frescas.",
+      "origin": "España"
+    },
+    {
+      "name": "Tortilla de patatas",
+      "allergens" : [
+        "fish",
+        "nuts",
+        "wheat",
+        "soy"
+      ],
+      "price": 8.50,
+      "description": "Excelente tortilla de patatas, hecha con las patatas mas frescas.",
+      "origin": "España"
+    },
+    {
+      "name": "Tortilla de patatas",
+      "allergens" : [
+        "fish",
+        "nuts",
+        "wheat",
+        "soy"
+      ],
+      "price": 8.50,
+      "description": "Excelente tortilla de patatas, hecha con las patatas mas frescas.",
+      "origin": "España"
+    },
+    {
+      "name": "Tortilla de patatas",
+      "allergens" : [
+        "fish",
+        "nuts",
+        "wheat",
+        "soy"
+      ],
+      "price": 8.50,
+      "description": "Excelente tortilla de patatas, hecha con las patatas mas frescas.",
+      "origin": "España"
+    },
+    {
+      "name": "Tortilla de patatas",
+      "allergens" : [
+        "fish",
+        "nuts",
+        "wheat",
+        "soy"
+      ],
+      "price": 8.50,
+      "description": "Excelente tortilla de patatas, hecha con las patatas mas frescas.",
+      "origin": "España"
+    },
+    {
+      "name": "Tortilla de patatas",
+      "allergens" : [
+        "fish",
+        "nuts",
+        "wheat",
+        "soy"
+      ],
+      "price": 8.50,
+      "description": "Excelente tortilla de patatas, hecha con las patatas mas frescas.",
+      "origin": "España"
+    }                
+  ]
+}

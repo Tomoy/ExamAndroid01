@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">android01Exam</string>
+    <string name="table_name_format">Mesa %%</string>
 </resources>

@@ -20,4 +20,6 @@ object Tables : Serializable {
         get() = tables.size
 
     operator fun get(i: Int) = tables[i]
+    fun toArray() = tables.toTypedArray()
+
 }

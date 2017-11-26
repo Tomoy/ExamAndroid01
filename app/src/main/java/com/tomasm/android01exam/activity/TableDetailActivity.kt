@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import com.tomasm.android01exam.R
 import com.tomasm.android01exam.fragment.TableOrdersFragment
+import kotlinx.android.synthetic.main.activity_table_detail.*
 
 class TableDetailActivity : AppCompatActivity() {
 
@@ -45,6 +46,11 @@ class TableDetailActivity : AppCompatActivity() {
                         .add(R.id.table_orders_fragment, fragment)
                         .commit()
             }
+        }
+
+        //Floating button acción, cambiamos a la activity para agregar platos
+        add_dish_button.setOnClickListener {
+            startActivity(AddDishActivity.intent(this))
         }
     }
 

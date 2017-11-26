@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".activity.DishActivity" />
         <activity android:name=".activity.TableDetailActivity" />
-        <activity android:name=".activity.TableCalculatorActivity"></activity>
+        <activity android:name=".activity.TableCalculatorActivity" />
+        <activity android:name=".activity.AddDishActivity"></activity>
     </application>
 
 </manifest>

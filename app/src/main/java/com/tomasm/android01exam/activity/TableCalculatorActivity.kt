@@ -11,7 +11,7 @@ class TableCalculatorActivity : AppCompatActivity() {
     companion object {
 
         fun intent(context: Context) : Intent {
-            val intent = Intent(context, TableDetailActivity::class.java)
+            val intent = Intent(context, TableCalculatorActivity::class.java)
             return intent
         }
     }

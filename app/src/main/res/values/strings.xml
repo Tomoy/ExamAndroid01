@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">android01Exam</string>
-    <string name="table_name_format">Mesa %%</string>
+    <string name="table_name_format">Mesa %d</string>
+    <string name="dish_title_format">Pedidos Mesa %d</string>
+    <string name="table_activity_title">Listas de Mesas</string>
+    <string name="menu_calculator">Calculador</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

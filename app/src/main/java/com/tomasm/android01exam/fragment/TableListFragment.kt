@@ -1,7 +1,9 @@
 package com.tomasm.android01exam.fragment
 
+import android.app.Activity
 import com.tomasm.android01exam.R
 import android.app.Fragment
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -55,6 +57,27 @@ class TableListFragment : Fragment() {
         }
 
         return root
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        commonOnAttach(context)
+    }
+
+    override fun onAttach(activity: Activity?) {
+        super.onAttach(activity)
+        commonOnAttach(activity)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        onTableSelectedListener = null
+    }
+
+    fun commonOnAttach(listener:Any?) {
+        if (listener is OnTableSelectedListener) {
+            onTableSelectedListener = listener
+        }
     }
 
 }

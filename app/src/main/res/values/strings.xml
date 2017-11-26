@@ -8,4 +8,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_dish_title">Agregar plato</string>
+    <string name="alert_error_title">Error</string>
+    <string name="download_dishes_alert_message">No se pudo descargar la información de los platos</string>
+    <string name="alert_error_retry">Reintentar</string>
+    <string name="alert_error_cancel">Cancelar</string>
 </resources>

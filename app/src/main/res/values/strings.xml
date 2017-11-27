@@ -12,4 +12,10 @@
     <string name="download_dishes_alert_message">No se pudo descargar la información de los platos</string>
     <string name="alert_error_retry">Reintentar</string>
     <string name="alert_error_cancel">Cancelar</string>
+    <string name="dish_image_description">Imagen del plato</string>
+    <string name="dish_name_default">3 Emapanas de Carne</string>
+    <string name="dish_price_default">Precio: 9.50 €</string>
+    <string name="dish_origin_default">Origen: Argentina</string>
+    <string name="allergen_image_description">Imagen de un allergeno que contiene el plato.</string>
+    <string name="dish_description_default">Tradicionales empanadas argentinas de carne con aceitunas, huevo duro y un par de pasas de uva.</string>
 </resources>

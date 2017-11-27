@@ -11,9 +11,9 @@
         android:layout_margin="@dimen/default_margin"
         android:indeterminate="true" />
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/dishes_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent"/>
 
 </ViewSwitcher>

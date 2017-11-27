@@ -4,6 +4,9 @@ import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.app.Fragment
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +14,9 @@ import android.widget.ViewSwitcher
 import com.tomasm.android01exam.DISHES_API_URL
 
 import com.tomasm.android01exam.R
+import com.tomasm.android01exam.adapter.DishesRecyclerViewAdapter
 import com.tomasm.android01exam.model.Dish
+import kotlinx.android.synthetic.main.fragment_available_dishes.*
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.async
@@ -38,6 +43,7 @@ class AvailableDishesFragment : Fragment() {
 
     lateinit var rootView: View
     lateinit var viewSwitcher: ViewSwitcher
+    lateinit var dishesList: RecyclerView
 
     var dishes: List<Dish>? = null
         set(value) {
@@ -46,6 +52,8 @@ class AvailableDishesFragment : Fragment() {
 
             if (value != null) {
                 //Tenemos la info descargada Y seteada en la var dishes, la utilizo para actualizar la vista con el modelo
+                val dishesAdapter = DishesRecyclerViewAdapter(value)
+                dishesList.adapter = dishesAdapter
 
                 //Actualizo el switcher para que no muestre mas el loading y muestre el contenido
                 viewSwitcher.displayedChild = VIEW_INDEX.AVAILABLE_DISHES.index
@@ -130,13 +138,17 @@ class AvailableDishesFragment : Fragment() {
 
         if (inflater != null) {
 
-            // Inflate the layout for this fragment
             rootView = inflater.inflate(R.layout.fragment_available_dishes, container, false)
 
             viewSwitcher = rootView.findViewById(R.id.view_switcher)
             viewSwitcher.setInAnimation(activity, android.R.anim.fade_in)
             viewSwitcher.setOutAnimation(activity, android.R.anim.fade_out)
 
+            dishesList = rootView.findViewById(R.id.dishes_list)
+            dishesList.layoutManager = GridLayoutManager(activity, resources.getInteger(R.integer.dishes_recycler_columns_amount))
+            dishesList.itemAnimator = DefaultItemAnimator()
+
+            //Para llamar el seter de dishes
             dishes = null
 
         }

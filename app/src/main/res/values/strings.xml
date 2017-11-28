@@ -5,8 +5,6 @@
     <string name="table_activity_title">Listas de Mesas</string>
     <string name="menu_calculator">Calculador</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_dish_title">Agregar plato</string>
     <string name="alert_error_title">Error</string>
     <string name="download_dishes_alert_message">No se pudo descargar la información de los platos</string>
@@ -15,7 +13,10 @@
     <string name="dish_image_description">Imagen del plato</string>
     <string name="dish_name_default">3 Emapanas de Carne</string>
     <string name="dish_price_default">Precio: 9.50 €</string>
+    <string name="dish_price_format">Precio: %.2f €</string>
     <string name="dish_origin_default">Origen: Argentina</string>
+    <string name="dish_origin_format">Origen: %s</string>
     <string name="allergen_image_description">Imagen de un allergeno que contiene el plato.</string>
     <string name="dish_description_default">Tradicionales empanadas argentinas de carne con aceitunas, huevo duro y un par de pasas de uva.</string>
+    <string name="allergens_title">Alérgenos:</string>
 </resources>

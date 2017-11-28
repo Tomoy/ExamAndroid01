@@ -1,0 +1,63 @@
+{
+"dishes": [
+    {
+      "name": "3 Empanadas de Carne",
+      "allergens" : [
+        "eggs",
+	"wheat"
+      ],
+      "price": 9.50,
+      "description": "Tradicionales empanadas argentinas de carne con aceitunas, huevo duro y un par de pasas de uva.",
+      "origin": "Argentina"
+    },
+    {
+      "name": "Paila Marina",
+      "allergens" : [
+        "fish"
+      ],
+      "price": 10.50,
+      "description": "Típico plato chileno traído desde Valparaiso.",
+      "origin": "Chile"
+    },
+    {
+      "name": "Leche de Tigre",
+      "allergens" : [
+        "fish",
+        "crustaceans"
+      ],
+      "price": 10.00,
+      "description": "La Leche de Tigre ha cruzado fronteras llegando hasta los mejores restaurantes del mundo en sus diferentes versiones, colores y sabores.",
+      "origin": "Perú"
+    },
+    {
+      "name": "Albóndigas Estofadas al Tomate",
+      "allergens" : [
+        "eggs",
+        "wheat"
+      ],
+      "price": 12.50,
+      "description": "Las albóndigas son increíblemente suaves, con papas y zanahorias, todo nadando en una salsa de tomate perfectamente suave y rica.",
+      "origin": "Colombia"
+    },
+    {
+      "name": "Pamonha dulce",
+      "allergens" : [
+        "milk"
+      ],
+      "price": 7.50,
+      "description": "Pasta elaborada con maíz, que se prepara en forma de bollo, y se cocina envuelta en las propias hojas del maíz.",
+      "origin": "Brasil"
+    },
+    {
+      "name": "Sandwich de Chivito",
+      "allergens" : [
+        "eggs",
+        "wheat",
+	"milk"
+      ],
+      "price": 9.50,
+      "description": "Plato típico uruguayo. Consiste en un sándwich que contiene carne vacuna, generalmente de lomo a la plancha",
+      "origin": "Uruguay”
+    }                
+  ]
+}

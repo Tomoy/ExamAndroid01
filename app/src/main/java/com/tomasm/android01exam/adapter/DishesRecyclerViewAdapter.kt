@@ -35,20 +35,58 @@ class DishesRecyclerViewAdapter(val dishes: List<Dish>?) : RecyclerView.Adapter<
         val dishImageView = itemView.findViewById<ImageView>(R.id.dish_image)
         val dishPriceTextView = itemView.findViewById<TextView>(R.id.dish_price)
         val dishOriginTextView = itemView.findViewById<TextView>(R.id.dish_origin)
+        val allergensTitle = itemView.findViewById<TextView>(R.id.dish_allergens)
+
+        val allergenImageView01 = itemView.findViewById<ImageView>(R.id.dish_allergen01)
+        val allergenImageView02 = itemView.findViewById<ImageView>(R.id.dish_allergen02)
+        val allergenImageView03 = itemView.findViewById<ImageView>(R.id.dish_allergen03)
 
         fun bindDish(dish: Dish) {
+
 
             //Accedemos al contexto de Dish a través de una de sus vistas
             val context = dishImageView.context
 
             //Actualizamos la vista con el modelo
             dishNameTextView.text = dish.name
-            //dishImageView.setImageResource(dish.icon)
-            dishPriceTextView.text = dish.price.toString()
-            dishOriginTextView.text = dish.origin
+            dishImageView.setImageResource(dish.thumbId)
+            dishPriceTextView.text = context.getString(R.string.dish_price_format, dish.price)
+            dishOriginTextView.text = context.getString(R.string.dish_origin_format, dish.origin)
 
-            /*val humidityString = context.getString(R.string.humidity_format, forecast.humidity)
-            humidity.text = humidityString*/
+            allergensTitle.text = context.getString(R.string.allergens_title)
+
+            //Lógica para mostrar el icono correspondiente al alergeno, sería mas fácil si supera armar las propiedades del imageview dinmaicamente :/
+            if (dish.allergens != null) {
+
+                val allergensThumbs = mutableListOf<Int>()
+
+                //Seteo primero las imagenes 2 y 3 a vacías, porque no siempre los menus tienen 2 o 3 alérgenos
+                allergenImageView02.setImageResource(android.R.color.transparent)
+                allergenImageView03.setImageResource(android.R.color.transparent)
+
+                for (allergenIndex in 0 until dish.allergens.count()) {
+
+                    when (allergenIndex) {
+                        0 ->  allergenImageView01.setImageResource(getAllergenThumbId(dish.allergens.get(allergenIndex)))
+                        1 ->  allergenImageView02.setImageResource(getAllergenThumbId(dish.allergens.get(allergenIndex)))
+                        2 ->  allergenImageView03.setImageResource(getAllergenThumbId(dish.allergens.get(allergenIndex)))
+                    }
+                }
+            }
+        }
+
+        fun getAllergenThumbId(allergen:String) :Int{
+
+            val allergenThumbId = when(allergen) {
+                "eggs" -> R.drawable.allergen01
+                "fish" -> R.drawable.allergen02
+                "milk" -> R.drawable.allergen03
+                "crustaceans" -> R.drawable.allergen04
+                "wheat" -> R.drawable.allergen05
+                else -> R.drawable.allergen01
+            }
+
+            return allergenThumbId
         }
     }
 }

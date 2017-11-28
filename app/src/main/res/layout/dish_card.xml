@@ -56,21 +56,28 @@
                 android:id="@+id/dish_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/dish_price_default"
-                android:layout_marginBottom="@dimen/tiny_margin"/>
+                android:layout_marginBottom="@dimen/tiny_margin"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="@string/dish_price_default" />
 
             <TextView
                 android:id="@+id/dish_origin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="@string/dish_origin_default"
-                android:layout_marginBottom="@dimen/tiny_margin"/>
+                android:layout_marginBottom="@dimen/tiny_margin"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="@string/dish_origin_default" />
 
             <TextView
+                android:id="@+id/dish_allergens"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="Alérgenos:"
-                android:layout_marginBottom="@dimen/tiny_margin"/>
+                android:layout_marginBottom="@dimen/tiny_margin"
+                android:textStyle="bold"
+                tools:text="@string/allergens_title" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

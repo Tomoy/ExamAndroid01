@@ -122,7 +122,17 @@ class AvailableDishesFragment : Fragment() {
             val description = currentDish.getString("description")
             val origin = currentDish.getString("origin")
 
-            dishes.add(Dish(dishName,allergensList,price, description, origin))
+            val dishThumbId = when(dishIndex) {
+                0 -> R.drawable.dish01
+                1 -> R.drawable.dish02
+                2 -> R.drawable.dish03
+                3 -> R.drawable.dish04
+                4 -> R.drawable.dish05
+                5 -> R.drawable.dish06
+                else -> R.drawable.dish01
+            }
+
+            dishes.add(Dish(dishName,allergensList,price, description, origin, dishThumbId))
 
         }
 

@@ -14,8 +14,11 @@ import com.tomasm.android01exam.model.Dish
  */
 class DishesRecyclerViewAdapter(val dishes: List<Dish>?) : RecyclerView.Adapter<DishesRecyclerViewAdapter.DishesViewHolder>() {
 
+    var onClickListener: View.OnClickListener? = null
+
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): DishesViewHolder {
         val dishCardView = LayoutInflater.from(parent?.context).inflate(R.layout.dish_card, parent, false)
+        dishCardView.setOnClickListener(onClickListener)
         return DishesViewHolder(dishCardView)
     }
 

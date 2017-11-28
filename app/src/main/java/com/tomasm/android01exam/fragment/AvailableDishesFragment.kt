@@ -1,5 +1,6 @@
 package com.tomasm.android01exam.fragment
 
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
@@ -10,6 +11,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.ViewSwitcher
 import com.tomasm.android01exam.DISHES_API_URL
 
@@ -41,6 +43,8 @@ class AvailableDishesFragment : Fragment() {
         }
     }
 
+    private var onDishSelectedListener: OnDishSelectedListener? = null
+
     lateinit var rootView: View
     lateinit var viewSwitcher: ViewSwitcher
     lateinit var dishesList: RecyclerView
@@ -54,6 +58,13 @@ class AvailableDishesFragment : Fragment() {
                 //Tenemos la info descargada Y seteada en la var dishes, la utilizo para actualizar la vista con el modelo
                 val dishesAdapter = DishesRecyclerViewAdapter(value)
                 dishesList.adapter = dishesAdapter
+
+                dishesAdapter.onClickListener = View.OnClickListener { v:View? ->
+                    //Aca me entero que se pulsó una de las vistas, v es la vista que fue pulsada
+                    val position = dishesList.getChildAdapterPosition(v)
+                    val dishSelected = value[position]
+                    onDishSelectedListener?.onDishSelected(dishSelected)
+                }
 
                 //Actualizo el switcher para que no muestre mas el loading y muestre el contenido
                 viewSwitcher.displayedChild = VIEW_INDEX.AVAILABLE_DISHES.index
@@ -170,8 +181,24 @@ class AvailableDishesFragment : Fragment() {
         super.onAttach(context)
     }
 
+    override fun onAttach(activity: Activity?) {
+        super.onAttach(activity)
+        commonOnAttach(activity)
+    }
+
+    fun commonOnAttach(listener:Any?) {
+        if (listener is OnDishSelectedListener) {
+            onDishSelectedListener = listener
+        }
+    }
+
     override fun onDetach() {
         super.onDetach()
+        onDishSelectedListener = null
+    }
+
+    interface OnDishSelectedListener {
+        fun onDishSelected(dish: Dish)
     }
 
 }

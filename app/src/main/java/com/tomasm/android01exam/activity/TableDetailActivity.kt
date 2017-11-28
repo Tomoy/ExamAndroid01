@@ -1,5 +1,6 @@
 package com.tomasm.android01exam.activity
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -8,6 +9,7 @@ import android.view.MenuItem
 import android.view.View
 import com.tomasm.android01exam.R
 import com.tomasm.android01exam.fragment.TableOrdersFragment
+import com.tomasm.android01exam.model.Dish
 import kotlinx.android.synthetic.main.activity_table_detail.*
 
 class TableDetailActivity : AppCompatActivity() {
@@ -15,6 +17,7 @@ class TableDetailActivity : AppCompatActivity() {
     companion object {
 
         val TABLE_NUMBER = "TABLE_NUMBER"
+        val REQUEST_CODE_ADD_DISH_ACTIVITY = 1
 
         fun intent(context: Context, tableNum: Int) : Intent {
             val intent = Intent(context, TableDetailActivity::class.java)
@@ -50,7 +53,16 @@ class TableDetailActivity : AppCompatActivity() {
 
         //Floating button acción, cambiamos a la activity para agregar platos
         add_dish_button.setOnClickListener {
-            startActivity(AddDishActivity.intent(this))
+            startActivityForResult(AddDishActivity.intent(this), REQUEST_CODE_ADD_DISH_ACTIVITY)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_CODE_ADD_DISH_ACTIVITY) {
+            if (resultCode == Activity.RESULT_OK) {
+                val dishToAdd = data?.getSerializableExtra(AddDishActivity.EXTRA_DISH_RESULT) as Dish
+                title = dishToAdd.name
+            }
         }
     }
 

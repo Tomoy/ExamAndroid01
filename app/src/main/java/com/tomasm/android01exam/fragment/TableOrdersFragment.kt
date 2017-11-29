@@ -1,17 +1,24 @@
 package com.tomasm.android01exam.fragment
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.app.Fragment
 import android.view.*
+import android.widget.ArrayAdapter
+import android.widget.ListView
 
 import com.tomasm.android01exam.R
 import com.tomasm.android01exam.activity.TableCalculatorActivity
+import com.tomasm.android01exam.model.Dish
+import com.tomasm.android01exam.model.Table
+import com.tomasm.android01exam.model.Tables
 
 class TableOrdersFragment : Fragment() {
 
     private var tableNumber: Int? = null
+    lateinit var root : View
+    private var ordersPerTable = arrayListOf<Dish>()
+    lateinit var tableOrdersList: ListView
 
     companion object {
 
@@ -58,8 +65,20 @@ class TableOrdersFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_table_orders, container, false)
+        // Inflamos el layout para este fragmento
+        if (inflater != null) {
+            root = inflater.inflate(R.layout.fragment_table_orders, container, false)
+            tableOrdersList = root.findViewById<ListView>(R.id.table_orders)
+        }
+
+        return root
+    }
+
+    //Método llamado por la actividad TableDetail, cuando fue plato fue agregado, para agregarlo a la lista
+    fun updateFragmentListWithDish(dish: Dish) {
+        ordersPerTable.add(dish)
+        val adapter = ArrayAdapter<Dish>(activity, android.R.layout.simple_list_item_1, ordersPerTable)
+        tableOrdersList.adapter = adapter
     }
 
 

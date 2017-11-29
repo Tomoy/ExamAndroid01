@@ -7,4 +7,5 @@ import java.io.Serializable
  */
 data class Dish (val name: String, val allergens: List<String>?, val price: Float, val description: String, val origin: String, val thumbId: Int ) : Serializable {
 
+    override fun toString() = name
 }

@@ -1,6 +1,7 @@
 package com.tomasm.android01exam.activity
 
 import android.app.Activity
+import android.app.FragmentManager
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -61,7 +62,10 @@ class TableDetailActivity : AppCompatActivity() {
         if (requestCode == REQUEST_CODE_ADD_DISH_ACTIVITY) {
             if (resultCode == Activity.RESULT_OK) {
                 val dishToAdd = data?.getSerializableExtra(AddDishActivity.EXTRA_DISH_RESULT) as Dish
-                title = dishToAdd.name
+
+                //Obtengo el fragment TableOrdersFragment para pasarle el dish elegido
+                val tableOrdersFragment = fragmentManager.findFragmentById(R.id.table_orders_fragment) as TableOrdersFragment
+                tableOrdersFragment.updateFragmentListWithDish(dishToAdd)
             }
         }
     }

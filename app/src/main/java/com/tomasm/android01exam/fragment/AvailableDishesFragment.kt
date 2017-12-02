@@ -92,11 +92,11 @@ class AvailableDishesFragment : Fragment() {
                 AlertDialog.Builder(activity)
                         .setTitle(getString(R.string.alert_error_title))
                         .setMessage(getString(R.string.download_dishes_alert_message))
-                        .setPositiveButton(getString(R.string.alert_error_retry), { dialog, which ->
+                        .setPositiveButton(getString(R.string.alert_error_retry), { dialog, _ ->
                             dialog.dismiss()
                             getDishes()
                         })
-                        .setNegativeButton(getString(R.string.alert_error_cancel), { dialog, which -> activity.finish() })
+                        .setNegativeButton(getString(R.string.alert_error_cancel), { dialog, _ -> activity.finish() })
                         .show()
             }
         }

@@ -17,11 +17,9 @@ import com.tomasm.android01exam.model.Orders
 
 class TableOrdersFragment : Fragment() {
 
-    private var tableNumber: Int? = null
+    var tableNumber: Int = 0
     lateinit var root : View
-    private var ordersPerTable = arrayListOf<MutableList<Dish>>()
     lateinit var ordersList: RecyclerView
-
 
     companion object {
 
@@ -58,7 +56,7 @@ class TableOrdersFragment : Fragment() {
         if (item?.itemId == R.id.menu_show_calculator) {
             //Sabemos que se hizo click en el menu opción calculator
 
-            val intent = TableCalculatorActivity.intent(activity)
+            val intent = TableCalculatorActivity.intent(activity, tableNumber)
             startActivity(intent)
             return true
         }
@@ -76,7 +74,7 @@ class TableOrdersFragment : Fragment() {
             ordersList.layoutManager = GridLayoutManager(activity, resources.getInteger(R.integer.dishes_recycler_columns_amount))
             ordersList.itemAnimator = DefaultItemAnimator()
 
-            val tableOrders = Orders.getOrdersForTable(tableNumber!!)
+            val tableOrders = Orders.getOrdersForTable(tableNumber)
             ordersList.adapter = DishesRecyclerViewAdapter(tableOrders)
 
 
@@ -93,8 +91,8 @@ class TableOrdersFragment : Fragment() {
 
     //Método llamado por la actividad TableDetail, cuando fue plato fue agregado, para agregarlo a la lista
     fun updateFragmentListWithDish(dish: Dish) {
-        Orders.addOrderToTable(dish, tableNumber!!)
-        val tableOrders = Orders.getOrdersForTable(tableNumber!!)
+        Orders.addOrderToTable(dish, tableNumber)
+        val tableOrders = Orders.getOrdersForTable(tableNumber)
         ordersList.adapter = DishesRecyclerViewAdapter(tableOrders)
     }
 

@@ -50,7 +50,7 @@ class TableListFragment : Fragment() {
             list.adapter = adapter
 
             //Para enterarnos cuando se hace click en un elemento de la ListView
-            list.setOnItemClickListener { parent, view, position, id ->
+            list.setOnItemClickListener { _, _, position, _ ->
                 Log.v("TAG", "Click on mesa num: ${position}")
                 onTableSelectedListener?.onTableSelected(Tables.get(position), position)
             }

@@ -6,4 +6,54 @@
     android:layout_height="match_parent"
     tools:context="com.tomasm.android01exam.activity.TableCalculatorActivity">
 
+    <TextView
+        android:id="@+id/calculator_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/table_calculator_title_format"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/label_amount_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/amount_orders_label"
+        app:layout_constraintStart_toStartOf="@+id/calculator_title"
+        app:layout_constraintTop_toBottomOf="@+id/calculator_title" />
+
+    <TextView
+        android:id="@+id/label_total_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/total_orders_label"
+        app:layout_constraintStart_toStartOf="@+id/label_amount_orders"
+        app:layout_constraintTop_toBottomOf="@+id/label_amount_orders" />
+
+    <TextView
+        android:id="@+id/amount_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/calculator_title"
+        app:layout_constraintTop_toBottomOf="@+id/calculator_title" />
+
+    <TextView
+        android:id="@+id/total_orders"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/amount_orders"
+        app:layout_constraintTop_toBottomOf="@+id/amount_orders" />
+
 </android.support.constraint.ConstraintLayout>

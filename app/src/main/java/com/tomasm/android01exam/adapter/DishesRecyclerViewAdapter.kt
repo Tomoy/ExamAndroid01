@@ -61,8 +61,6 @@ class DishesRecyclerViewAdapter(val dishes: List<Dish>?) : RecyclerView.Adapter<
             //Lógica para mostrar el icono correspondiente al alergeno, sería mas fácil si supera armar las propiedades del imageview dinmaicamente :/
             if (dish.allergens != null) {
 
-                val allergensThumbs = mutableListOf<Int>()
-
                 //Seteo primero las imagenes 2 y 3 a vacías, porque no siempre los menus tienen 2 o 3 alérgenos
                 allergenImageView02.setImageResource(android.R.color.transparent)
                 allergenImageView03.setImageResource(android.R.color.transparent)

@@ -19,4 +19,5 @@
     <string name="allergen_image_description">Imagen de un allergeno que contiene el plato.</string>
     <string name="dish_description_default">Tradicionales empanadas argentinas de carne con aceitunas, huevo duro y un par de pasas de uva.</string>
     <string name="allergens_title">Alérgenos:</string>
+    <string name="table_total_calculator">Calculador Total</string>
 </resources>

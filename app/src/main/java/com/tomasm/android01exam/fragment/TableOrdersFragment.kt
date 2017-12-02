@@ -3,22 +3,25 @@ package com.tomasm.android01exam.fragment
 import android.content.Context
 import android.os.Bundle
 import android.app.Fragment
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.*
-import android.widget.ArrayAdapter
-import android.widget.ListView
 
 import com.tomasm.android01exam.R
 import com.tomasm.android01exam.activity.TableCalculatorActivity
+import com.tomasm.android01exam.adapter.DishesRecyclerViewAdapter
 import com.tomasm.android01exam.model.Dish
-import com.tomasm.android01exam.model.Table
-import com.tomasm.android01exam.model.Tables
+import com.tomasm.android01exam.model.Orders
+
 
 class TableOrdersFragment : Fragment() {
 
     private var tableNumber: Int? = null
     lateinit var root : View
-    private var ordersPerTable = arrayListOf<Dish>()
-    lateinit var tableOrdersList: ListView
+    private var ordersPerTable = arrayListOf<MutableList<Dish>>()
+    lateinit var ordersList: RecyclerView
+
 
     companion object {
 
@@ -68,7 +71,21 @@ class TableOrdersFragment : Fragment() {
         // Inflamos el layout para este fragmento
         if (inflater != null) {
             root = inflater.inflate(R.layout.fragment_table_orders, container, false)
-            tableOrdersList = root.findViewById<ListView>(R.id.table_orders)
+
+            ordersList = root.findViewById(R.id.orders_list)
+            ordersList.layoutManager = GridLayoutManager(activity, resources.getInteger(R.integer.dishes_recycler_columns_amount))
+            ordersList.itemAnimator = DefaultItemAnimator()
+
+            val tableOrders = Orders.getOrdersForTable(tableNumber!!)
+            ordersList.adapter = DishesRecyclerViewAdapter(tableOrders)
+
+
+            /*dishesAdapter.onClickListener = View.OnClickListener { v:View? ->
+                //Aca me entero que se pulsó una de las vistas, v es la vista que fue pulsada
+                val position = tableOrdersList.getChildAdapterPosition(v)
+                val dishSelected = ordersPerTable[position]
+                onDishSelectedListener?.onDishSelected(dishSelected)
+            }*/
         }
 
         return root
@@ -76,9 +93,9 @@ class TableOrdersFragment : Fragment() {
 
     //Método llamado por la actividad TableDetail, cuando fue plato fue agregado, para agregarlo a la lista
     fun updateFragmentListWithDish(dish: Dish) {
-        ordersPerTable.add(dish)
-        val adapter = ArrayAdapter<Dish>(activity, android.R.layout.simple_list_item_1, ordersPerTable)
-        tableOrdersList.adapter = adapter
+        Orders.addOrderToTable(dish, tableNumber!!)
+        val tableOrders = Orders.getOrdersForTable(tableNumber!!)
+        ordersList.adapter = DishesRecyclerViewAdapter(tableOrders)
     }
 
 

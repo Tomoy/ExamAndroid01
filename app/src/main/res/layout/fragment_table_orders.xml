@@ -4,9 +4,9 @@
     android:layout_height="match_parent"
     tools:context="com.tomasm.android01exam.fragment.TableOrdersFragment">
 
-    <ListView
-        android:id="@+id/table_orders"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/orders_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </FrameLayout>

@@ -20,6 +20,6 @@ class TableCalculatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R
                 .layout.activity_table_calculator)
-        title = "Calculador Total"
+        title = getString(R.string.table_total_calculator)
     }
 }

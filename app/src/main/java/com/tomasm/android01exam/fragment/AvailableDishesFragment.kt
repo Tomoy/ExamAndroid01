@@ -11,14 +11,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.ViewSwitcher
 import com.tomasm.android01exam.DISHES_API_URL
 
 import com.tomasm.android01exam.R
 import com.tomasm.android01exam.adapter.DishesRecyclerViewAdapter
 import com.tomasm.android01exam.model.Dish
-import kotlinx.android.synthetic.main.fragment_available_dishes.*
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.async
@@ -106,8 +104,8 @@ class AvailableDishesFragment : Fragment() {
 
     fun downloadDishes() : List<Dish>? {
 
-        //Demoramos 2 sec la descarga para que siempre se llegue a ver el loading..
-        Thread.sleep(2000)
+        //Demoramos 1 sec la descarga para que siempre se llegue a ver el loading..
+        Thread.sleep(1000)
 
         var url = URL(DISHES_API_URL)
         val jsonString = Scanner(url.openStream(), "UTF-8").useDelimiter("\\A").next()

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
@@ -42,6 +43,8 @@ class DishDetailActivity: AppCompatActivity() {
         val selectedDish = intent.getSerializableExtra(SELECTED_DISH) as Dish
 
         updateViewWithModel(selectedDish)
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
     fun updateViewWithModel(dish: Dish) {

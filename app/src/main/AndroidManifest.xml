@@ -18,10 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.DishActivity" />
         <activity android:name=".activity.TableDetailActivity" />
         <activity android:name=".activity.TableCalculatorActivity" />
-        <activity android:name=".activity.AddDishActivity"></activity>
+        <activity android:name=".activity.AddDishActivity" />
+        <activity android:name=".activity.DishDetailActivity" />
     </application>
 
 </manifest>

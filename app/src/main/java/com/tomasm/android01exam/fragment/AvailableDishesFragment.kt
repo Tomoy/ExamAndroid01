@@ -131,7 +131,19 @@ class AvailableDishesFragment : Fragment() {
             val description = currentDish.getString("description")
             val origin = currentDish.getString("origin")
 
+            //Seteamos el thumb del plato
             val dishThumbId = when(dishIndex) {
+                0 -> R.drawable.dish_thumb01
+                1 -> R.drawable.dish_thumb02
+                2 -> R.drawable.dish_thumb03
+                3 -> R.drawable.dish_thumb04
+                4 -> R.drawable.dish_thumb05
+                5 -> R.drawable.dish_thumb06
+                else -> R.drawable.dish_thumb01
+            }
+
+            //Seteamos la imagen grande del plato
+            val dishImageId = when(dishIndex) {
                 0 -> R.drawable.dish01
                 1 -> R.drawable.dish02
                 2 -> R.drawable.dish03
@@ -141,7 +153,7 @@ class AvailableDishesFragment : Fragment() {
                 else -> R.drawable.dish01
             }
 
-            dishes.add(Dish(dishName,allergensList,price, description, origin, dishThumbId))
+            dishes.add(Dish(dishName,allergensList,price, description, origin, dishThumbId, dishImageId))
 
         }
 

@@ -8,10 +8,12 @@
     <!-- Margins -->
 
     <!-- Sizes -->
-    <dimen name="dish_image_max_width">150dp</dimen>
+    <dimen name="dish_thumb_image_max_width">150dp</dimen>
+    <dimen name="dish_image_max_width">300dp</dimen>
     <dimen name="card_elevation">8dp</dimen>
     <dimen name="card_corner_radius">8dp</dimen>
     <dimen name="card_allergen_size">24dp</dimen>
+    <dimen name="dish_detail_comments_height">80dp</dimen>
     <!-- Sizes -->
 
     <!-- Font Sizes -->

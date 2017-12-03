@@ -1,5 +1,6 @@
 package com.tomasm.android01exam.fragment
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.app.Fragment
@@ -20,6 +21,9 @@ class TableOrdersFragment : Fragment() {
     var tableNumber: Int = 0
     lateinit var root : View
     lateinit var ordersList: RecyclerView
+    lateinit var dishesAdapter: DishesRecyclerViewAdapter
+
+    private var onOrderSelectedListener: OnOrderSelectedListener? = null
 
     companion object {
 
@@ -76,15 +80,16 @@ class TableOrdersFragment : Fragment() {
             ordersList.itemAnimator = DefaultItemAnimator()
 
             val tableOrders = Orders.getOrdersForTable(tableNumber)
-            ordersList.adapter = DishesRecyclerViewAdapter(tableOrders)
+            dishesAdapter= DishesRecyclerViewAdapter(tableOrders)
+            ordersList.adapter = dishesAdapter
 
-
-            /*dishesAdapter.onClickListener = View.OnClickListener { v:View? ->
+            //Escuchar cuando una orden fue cliqueada
+            dishesAdapter.onClickListener = View.OnClickListener { v:View? ->
                 //Aca me entero que se pulsó una de las vistas, v es la vista que fue pulsada
-                val position = tableOrdersList.getChildAdapterPosition(v)
-                val dishSelected = ordersPerTable[position]
-                onDishSelectedListener?.onDishSelected(dishSelected)
-            }*/
+                val position = ordersList.getChildAdapterPosition(v)
+                val dishSelected = tableOrders[position]
+                onOrderSelectedListener?.orderSelected(dishSelected)
+            }
         }
 
         return root
@@ -94,7 +99,7 @@ class TableOrdersFragment : Fragment() {
     fun updateFragmentListWithDish(dish: Dish) {
         Orders.addOrderToTable(dish, tableNumber)
         val tableOrders = Orders.getOrdersForTable(tableNumber)
-        ordersList.adapter = DishesRecyclerViewAdapter(tableOrders)
+        dishesAdapter.notifyDataSetChanged()
     }
 
 
@@ -102,8 +107,24 @@ class TableOrdersFragment : Fragment() {
         super.onAttach(context)
     }
 
+    override fun onAttach(activity: Activity?) {
+        super.onAttach(activity)
+        commonOnAttach(activity)
+    }
+
+    fun commonOnAttach(listener:Any?) {
+        if (listener is OnOrderSelectedListener) {
+            onOrderSelectedListener = listener
+        }
+    }
+
     override fun onDetach() {
         super.onDetach()
+        onOrderSelectedListener = null
+    }
+
+    interface OnOrderSelectedListener {
+        fun orderSelected(dish: Dish)
     }
 
 }

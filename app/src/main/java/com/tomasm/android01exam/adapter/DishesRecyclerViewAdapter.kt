@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.tomasm.android01exam.HelperClass
 import com.tomasm.android01exam.R
 import com.tomasm.android01exam.model.Dish
 
@@ -58,7 +59,7 @@ class DishesRecyclerViewAdapter(val dishes: List<Dish>?) : RecyclerView.Adapter<
 
             allergensTitle.text = context.getString(R.string.allergens_title)
 
-            //Lógica para mostrar el icono correspondiente al alergeno, sería mas fácil si supera armar las propiedades del imageview dinmaicamente :/
+            //Lógica para mostrar el icono correspondiente al alergeno, sería mas fácil si supiera armar las propiedades del imageview dinmaicamente :/
             if (dish.allergens != null) {
 
                 //Seteo primero las imagenes 2 y 3 a vacías, porque no siempre los menus tienen 2 o 3 alérgenos
@@ -68,26 +69,12 @@ class DishesRecyclerViewAdapter(val dishes: List<Dish>?) : RecyclerView.Adapter<
                 for (allergenIndex in 0 until dish.allergens.count()) {
 
                     when (allergenIndex) {
-                        0 ->  allergenImageView01.setImageResource(getAllergenThumbId(dish.allergens.get(allergenIndex)))
-                        1 ->  allergenImageView02.setImageResource(getAllergenThumbId(dish.allergens.get(allergenIndex)))
-                        2 ->  allergenImageView03.setImageResource(getAllergenThumbId(dish.allergens.get(allergenIndex)))
+                        0 ->  allergenImageView01.setImageResource(HelperClass.getAllergenThumbId(dish.allergens.get(allergenIndex)))
+                        1 ->  allergenImageView02.setImageResource(HelperClass.getAllergenThumbId(dish.allergens.get(allergenIndex)))
+                        2 ->  allergenImageView03.setImageResource(HelperClass.getAllergenThumbId(dish.allergens.get(allergenIndex)))
                     }
                 }
             }
-        }
-
-        fun getAllergenThumbId(allergen:String) :Int{
-
-            val allergenThumbId = when(allergen) {
-                "eggs" -> R.drawable.allergen01
-                "fish" -> R.drawable.allergen02
-                "milk" -> R.drawable.allergen03
-                "crustaceans" -> R.drawable.allergen04
-                "wheat" -> R.drawable.allergen05
-                else -> R.drawable.allergen01
-            }
-
-            return allergenThumbId
         }
     }
 }

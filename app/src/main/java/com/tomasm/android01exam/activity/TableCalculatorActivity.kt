@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
@@ -34,6 +35,9 @@ class TableCalculatorActivity : AppCompatActivity() {
                 .layout.activity_table_calculator)
 
         title = getString(R.string.table_total_calculator)
+
+        //Botón Volver
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val tableNum = intent.getIntExtra(TABLE_NUMBER, 1)
         val tableOrders = intent.getSerializableExtra(TABLE_ORDERS) as Array<Dish>
@@ -75,5 +79,16 @@ class TableCalculatorActivity : AppCompatActivity() {
         }
 
         calculator_total.text = getString(R.string.table_calculator_total_format, acumulatedTotal)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+        //Button back was pressed so we terminate the activity to go back to TableDetailActivity
+        if (item?.itemId == android.R.id.home) {
+            finish()
+            return true
+        }
+
+        return false
     }
 }

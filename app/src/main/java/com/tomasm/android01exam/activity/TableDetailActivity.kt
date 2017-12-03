@@ -1,7 +1,6 @@
 package com.tomasm.android01exam.activity
 
 import android.app.Activity
-import android.app.FragmentManager
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -13,7 +12,7 @@ import com.tomasm.android01exam.fragment.TableOrdersFragment
 import com.tomasm.android01exam.model.Dish
 import kotlinx.android.synthetic.main.activity_table_detail.*
 
-class TableDetailActivity : AppCompatActivity() {
+class TableDetailActivity : AppCompatActivity(), TableOrdersFragment.OnOrderSelectedListener {
 
     companion object {
 
@@ -79,5 +78,9 @@ class TableDetailActivity : AppCompatActivity() {
         }
 
         return false
+    }
+
+    override fun orderSelected(dish: Dish) {
+        startActivity(DishDetailActivity.intent(this, dish))
     }
 }

@@ -28,7 +28,7 @@ class AddDishActivity : AppCompatActivity(), AvailableDishesFragment.OnDishSelec
 
         title = getString(R.string.add_dish_title)
 
-        //Button Back
+        //Botón Volver
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         //Add TableOrdersFragment

@@ -14,6 +14,9 @@ object Orders : Serializable {
             mutableListOf<Dish>(),
             mutableListOf<Dish>(),
             mutableListOf<Dish>(),
+            mutableListOf<Dish>(),
+            mutableListOf<Dish>(),
+            mutableListOf<Dish>(),
             mutableListOf<Dish>()
             )
     val count

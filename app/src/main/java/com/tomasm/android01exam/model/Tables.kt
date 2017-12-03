@@ -14,8 +14,12 @@ object Tables : Serializable {
             Table(4),
             Table(5),
             Table(6),
-            Table(7)
-            )
+            Table(7),
+            Table(8),
+            Table(9),
+            Table(10)
+
+    )
     val count
         get() = tables.size
 

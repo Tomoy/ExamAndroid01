@@ -21,6 +21,6 @@
     <string name="allergens_title">Alérgenos:</string>
     <string name="table_total_calculator">Calculador Total</string>
     <string name="table_calculator_title_format">Resúmen pedidos mesa: %d</string>
-    <string name="amount_orders_label">Cantidad de pedidos:</string>
-    <string name="total_orders_label">Total pedidos:</string>
+    <string name="table_calculator_total_format">Total pedidos: %.2f €</string>
+
 </resources>

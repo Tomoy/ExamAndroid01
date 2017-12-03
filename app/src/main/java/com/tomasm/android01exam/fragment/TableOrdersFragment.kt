@@ -56,7 +56,8 @@ class TableOrdersFragment : Fragment() {
         if (item?.itemId == R.id.menu_show_calculator) {
             //Sabemos que se hizo click en el menu opción calculator
 
-            val intent = TableCalculatorActivity.intent(activity, tableNumber)
+            val tableOrders = Orders.getOrdersForTable(tableNumber)
+            val intent = TableCalculatorActivity.intent(activity, tableNumber, tableOrders.toTypedArray())
             startActivity(intent)
             return true
         }
